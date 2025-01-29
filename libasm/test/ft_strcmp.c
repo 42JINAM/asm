@@ -13,10 +13,9 @@ int main(int argc, char** argv)
   
   char *src = argv[1];
   char *dst = strdup(argv[2]);
-  char *res = ft_strcpy(dst, src);
-  printf("ft_strcpy src : %s , dst : %s, res: %s\n", src, argv[2], res);
+  int res = ft_strcmp(dst, src);
+  printf("ft_strcmp src: %s, dst: %s, res: %d\n", src, dst, res);
 
-  char *dst1 = strdup(argv[2]);
-  char *res1 = strcpy(dst, src);
-  printf("strcpy src : %s , dst : %s, res: %s\n", src, argv[2], res1);
+  int res1 = strcmp(dst, src);
+  printf("strcmp src: %s, dst: %s, res: %d\n", src, dst, res1);
 }
