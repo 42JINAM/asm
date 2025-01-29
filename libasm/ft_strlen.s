@@ -6,9 +6,9 @@
 	global  ft_strlen
 
 ft_strlen:
-# xor rax, rax; rax = 0
-	mov rax, 0; rax = 0
-	jmp .loop
+	;xor rax, rax; rax = 0
+	mov  rax, 0; rax = 0
+	jmp  .loop
 
 .loop:
 	cmp BYTE [rdi + rax], 0
