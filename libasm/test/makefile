@@ -21,6 +21,17 @@ ft_strcpy: ft_strcpy.o $(LIBASM)
 ft_strcmp: ft_strcmp.o $(LIBASM)
 	$(CC) $(CFLAGS) -o tester ft_strcmp.o $(LIBASM)
 
+# ft_write를 빌드하는 규칙
+ft_write: ft_write.o $(LIBASM)
+	$(CC) $(CFLAGS) -o tester ft_write.o $(LIBASM)
+
+# ft_read를 빌드하는 규칙
+ft_read: ft_read.o $(LIBASM)
+	$(CC) $(CFLAGS) -o tester ft_read.o $(LIBASM)
+
+
+
+
 
 # ft_strlen.o 생성 규칙
 ft_strlen.o: ft_strlen.c
@@ -31,8 +42,18 @@ ft_strcpy.o: ft_strcpy.c
 	$(CC) $(CFLAGS) -c ft_strcpy.c -o ft_strcpy.o
 
 # ft_strcmp.o 생성 규칙
-ft_strcmp.o: ft_strcpy.c
+ft_strcmp.o: ft_strcmp.c
 	$(CC) $(CFLAGS) -c ft_strcmp.c -o ft_strcmp.o -no-pie -g
+
+# ft_write.o 생성 규칙
+ft_write.o: ft_strcpy.c
+	$(CC) $(CFLAGS) -c ft_write.c -o ft_write.o
+
+# ft_read.o 생성 규칙
+ft_read.o: ft_strcpy.c
+	$(CC) $(CFLAGS) -c ft_read.c -o ft_read.o
+
+
 
 
 # libasm.a가 갱신되었는지 확인하고, 갱신된 경우만 다시 빌드
