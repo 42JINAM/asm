@@ -7,7 +7,7 @@ NASM = nasm
 NASMFLAGS = -f elf64
 
 OBJ_DIR = objs
-SRCS_FILES = ft_strlen ft_strcpy ft_strcmp
+SRCS_FILES = ft_strlen ft_strcpy ft_strcmp ft_write ft_read
 
 OBJS = $(addprefix $(OBJ_DIR)/,$(addsuffix .o, $(SRCS_FILES)))
 
