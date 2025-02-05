@@ -5,26 +5,28 @@
 	num     resb 2
 	section .data
 	newline db 10, 0
+	tx      db 'test', 0
 
 	section .text
 
 	; void iprint(int num)
 
 iprint:
-	mov rax, [rdi]
+	mov rax, rdi
 	add al, 48
 	mov [num], al
 
 	mov  byte[num + 1], 0
 	mov  rdi, num
-	call sprint
+	call sprintLF
+	ret
 
 iprintLF:
-	push rdi
-	call iprint
-	mov  rdi, newline
-	call sprint
-	pop  rdi
+	;push rdi
+	;mov  rdi, tx
+	;call sprintLF
+	;pop  rdi
+	call  iprint
 	ret
 
 slen:
@@ -33,6 +35,7 @@ slen:
 	mov  rbx, rdi
 
 nextchar:
+
 	cmp byte [rdi], 0
 	jz  finished
 	inc rdi
