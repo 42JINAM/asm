@@ -1,6 +1,6 @@
 # 기본 변수 설정
 LIBASM = ../libasm.a       # libasm.a 경로
-CC = gcc                   # C 컴파일러
+CC = clang                  # C 컴파일러
 CFLAGS = -Wall -Wextra     # 컴파일 플래그
 
 # 각 .c 파일에 대한 오브젝트 파일 및 실행 파일 이름 설정
@@ -28,6 +28,10 @@ ft_write: ft_write.o $(LIBASM)
 # ft_read를 빌드하는 규칙
 ft_read: ft_read.o $(LIBASM)
 	$(CC) $(CFLAGS) -o tester ft_read.o $(LIBASM)
+# ft_strdup를 빌드하는 규칙
+ft_strdup: ft_strdup.o $(LIBASM)
+	$(CC) $(CFLAGS)-g -o tester ft_strdup.o $(LIBASM)
+
 
 
 
@@ -50,8 +54,13 @@ ft_write.o: ft_strcpy.c
 	$(CC) $(CFLAGS) -c ft_write.c -o ft_write.o
 
 # ft_read.o 생성 규칙
-ft_read.o: ft_strcpy.c
+ft_read.o: ft_read.c
 	$(CC) $(CFLAGS) -c ft_read.c -o ft_read.o
+
+# ft_strdup.o 생성 규칙
+ft_strdup.o: ft_strdup.c
+	$(CC) $(CFLAGS) -c ft_strdup.c -o ft_strdup.o
+
 
 
 
